@@ -1,0 +1,53 @@
+# General Trading Options Configuration
+# Created from "1 · General Trading Options.txt"
+
+# Section 1: General Trading Options
+trading_options:
+  DontTradeOnWeekends: true  # Friday close = 23:00 GMT; Sunday open = 23:00 GMT
+  RealisticGapsHandling: true  # SQX gap-fill model
+  MaxTradesPerDay: 0  # unlimited
+  ReservedBars: 50  # bar buffer before first trade
+  ExitOnFriday: true
+  FridayExitTime: 2300
+
+# Section 4: Genetic-Evolution Build Mode
+build_mode:
+  PopulationSize: 200  # × 4 islands
+  MaxGenerations: 50
+  Islands: 4
+  CrossoverProbability: 84  # %
+  MutationProbability: 20  # %
+  MigrationFrequency: 20  # every 20 generations
+  MigrationPercentage: 20  # % elites
+  FreshBloodFrequency: 2  # every 2 generations
+  FreshBloodPercentage: 10  # % weakest + similarities
+  FilterInitialPopulation: true  # only strategies that meet ranking filters enter Gen 0
+
+# Section 3: SL/PT Options
+slpt:
+  SLRequired: true
+  PTRequired: true
+  SLFixedPips: true
+  PTFixedPips: true
+  MinSLInPips: 5
+  MaxSLInPips: 25
+  MinPTInPips: 5
+  MaxPTInPips: 25
+  SLATR: true  # ATR-based SL/PT
+  PTATR: true  # ATR-based SL/PT
+  MinSLATRMultiple: 0.5
+  MaxSLATRMultiple: 1.5
+  UsePercentSL: true
+  MinSLInPercent: 1
+  MaxSLInPercent: 10
+
+# Section 7: Ranking & Global Filters - acceptance conditions
+conditions:
+  NetProfit_IS: 0  # Net Profit (IS) > 0 $
+  NumberOfTrades_IS: 80  # Number of Trades (IS) > 80
+  ReturnDDRatio_IS: 1.0  # Return/DD Ratio (IS) > 1.0
+  ReturnDDRatio_OOS: 0.8  # Return/DD Ratio (OOS) > 0.8
+  ProfitFactor_IS: 1.10  # Profit Factor (IS) > 1.10
+  ProfitFactor_OOS: 1.10  # Profit Factor (OOS) > 1.10
+  Stability_IS: 0.50  # Stability (IS) > 0.50
+  Symmetry_IS: 30  # Symmetry (IS) > 30%
