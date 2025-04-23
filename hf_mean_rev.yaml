@@ -1,0 +1,63 @@
+# High-Frequency Mean-Reversal Configuration
+# Updated to address all specification requirements
+
+trading_options:
+  MaxTradesPerDay: 6              # Was 0, needed to be 6
+  DontTradeOnWeekends: true       # Was false, needed to be true
+  ReservedBars: 50                # Was 25, needed to be 50
+  RealisticGapsHandling: true     # Was false, needed to be true
+  ExitOnFriday: true
+  FridayExitTime: 2300            # seconds after Saturday 00:00
+
+build_mode:
+  generationType: genetic-evolution
+  PopulationSize: 200             # Was 100, needed to be 200
+  MaxGenerations: 50              # Was 25, needed to be 50
+  Islands: 4                      # Was 2, needed to be 4
+  CrossoverProbability: 84        # Was missing, needed to be 84%
+  MutationProbability: 20         # Was missing, needed to be 20%
+  FreshBloodPercentage: 15        # Already correct
+  RestartAfterNGenerations: 10    # Already correct
+
+slpt:
+  MinSLInPips: 5                  # Was 10, needed to be 5
+  MaxSLInPips: 25                 # Was 50, needed to be 25
+  MinATRMultiplier: 0.5           # Was unused, added with 0.5 value
+  MaxATRMultiplier: 1.5           # Was unused, added with 1.5 value
+  UsePercentSL: true              # Was false, needed to be true
+  MinSLInPercent: 1               # Added with appropriate value
+  MaxSLInPercent: 10              # Added with appropriate value
+  SLPTRequired: true              # Was false, needed to be true
+
+# Ranking and filters - were inactive, now enabled
+ranking:
+  goals: 
+    NumberOfTrades: 20
+    ReturnDDRatio: 40
+    SQNScore: 40
+  filters:
+    NetProfit_IS: 0
+    NumberOfTrades_IS: 80
+    ReturnDDRatio_IS: 1.0
+    ReturnDDRatio_OOS: 0.8
+    ProfitFactor_IS: 1.10
+    ProfitFactor_OOS: 1.10
+    Stability_IS: 0.50
+    Symmetry_IS: 30
+
+blocks:
+  enable_only:
+    - ADXCrossDown                # Already correct - all others disabled
+
+data_setup:
+  symbol: EURUSD_darwinex         # Already correct
+  timeframe: M15                  # Already correct
+  date_from: 2020-04-17           # Already correct
+  date_to: 2025-04-18             # Already correct
+  test_precision: 15              # Already correct
+  spread: 2                       # Already correct
+  slippage: 1                     # Already correct
+  commission_per_lot: 7           # Already correct
+  swap_long: -7                   # Already correct (if present)
+  swap_short: -7                  # Already correct (if present)
+  oos_blocks: rolling_3m_10       # Already correct
