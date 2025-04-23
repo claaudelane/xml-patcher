@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Task>
+  <BuildTradingOptions>
+    <Params>
+      <Param key="MaxTradesPerDay" class="Generic">0</Param>
+      <Param key="DontTradeOnWeekends" class="Generic">false</Param>
+      <Param key="ReservedBars" class="Generic">25</Param>
+      <Param key="RealisticGapsHandling" class="Generic">false</Param>
+    </Params>
+  </BuildTradingOptions>
+  <BuildMode>
+    <PopulationSize>100</PopulationSize>
+    <MaxGenerations>25</MaxGenerations>
+    <Islands>2</Islands>
+    <CrossoverProbability>75</CrossoverProbability>
+    <MutationProbability>15</MutationProbability>
+  </BuildMode>
+  <SLPTOptions>
+    <MinSLInPips>10</MinSLInPips>
+    <MaxSLInPips>50</MaxSLInPips>
+    <MinPTInPips>10</MinPTInPips>
+    <MaxPTInPips>50</MaxPTInPips>
+    <SLRequired>false</SLRequired>
+    <PTRequired>false</PTRequired>
+    <SLFixedPips>false</SLFixedPips>
+    <PTFixedPips>false</PTFixedPips>
+  </SLPTOptions>
+  <FilterParams>
+    <Conditions>
+      <Condition use="false">
+        <Left-Side>
+          <Column-Value column="NetProfit" sampleType="10"/>
+        </Left-Side>
+        <Right-Side>
+          <Numeric-Value value="0"/>
+        </Right-Side>
+      </Condition>
+      <Condition use="false">
+        <Left-Side>
+          <Column-Value column="NumberOfTrades" sampleType="10"/>
+        </Left-Side>
+        <Right-Side>
+          <Numeric-Value value="50"/>
+        </Right-Side>
+      </Condition>
+    </Conditions>
+  </FilterParams>
+</Task>
