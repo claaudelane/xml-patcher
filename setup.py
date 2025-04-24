@@ -7,7 +7,7 @@ setup(
     author="Franck L.",
     author_email="fcl@aubonrepas.com",
     packages=find_packages(include=['xml_patcher', 'xml_patcher.*']),
-    package_dir={'': 'src'},
+    # package_dir={'': 'src'},  <-- Removed this line
     package_data={
         'xml_patcher': ['templates/*', 'config/*'],
     },
